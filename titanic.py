@@ -32,6 +32,11 @@ train_dataset['Survived'].mean()
 
 #---------------------------------------------------------------------------------------
 
+#Ilk 5 veriyi tablo şeklinde göster
+train_dataset.head()
+
+#---------------------------------------------------------------------------------------
+
 #Eksik sütünları göster
 
 #eğitim setinde eksik değerleri olan sütunları listele
@@ -40,5 +45,5 @@ print(train_dataset.columns[train_dataset.isna().any()])
 #test setinde eksik değerleri olan sütunları listele
 print(test_dataset.columns[test_dataset.isna().any()])
 
-
+#---------------------------------------------------------------------------------------
 
