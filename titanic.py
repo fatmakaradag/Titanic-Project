@@ -1,4 +1,4 @@
-#imports
+#Imports
 
 import numpy as np
 import pandas as pd
@@ -7,7 +7,7 @@ import seaborn as sns
 
 #---------------------------------------------------------------------------------------
 
-#load data
+#Test ve Train Verisetini Tanımlama
 
 #Test verisetini pandas kütüphanesi ile tanımlıyoruz.
 train_dataset = pd.read_csv(r'C:\Users\pesen\Desktop\new\train.csv')     #(r'C:\Users\Fatma\Downloads\titanic_data.csv')
@@ -32,7 +32,13 @@ train_dataset['Survived'].mean()
 
 #---------------------------------------------------------------------------------------
 
+#Eksik sütünları göster
 
+#eğitim setinde eksik değerleri olan sütunları listele
+print(train_dataset.columns[train_dataset.isna().any()])
+
+#test setinde eksik değerleri olan sütunları listele
+print(test_dataset.columns[test_dataset.isna().any()])
 
 
 
