@@ -1,4 +1,4 @@
-#Imports
+#imports
 
 import numpy as np
 import pandas as pd
@@ -7,7 +7,7 @@ import seaborn as sns
 
 #---------------------------------------------------------------------------------------
 
-#Test ve Train Verisetini Tanımlama
+#load data
 
 #Test verisetini pandas kütüphanesi ile tanımlıyoruz.
 train_dataset = pd.read_csv(r'C:\Users\pesen\Desktop\new\train.csv')     #(r'C:\Users\Fatma\Downloads\titanic_data.csv')
@@ -16,34 +16,17 @@ train_dataset = pd.read_csv(r'C:\Users\pesen\Desktop\new\train.csv')     #(r'C:\
 test_dataset = pd.read_csv(r'C:\Users\pesen\Desktop\new\test.csv')
 
 #---------------------------------------------------------------------------------------
+train_dataset.info()
+test_dataset.info()
 
-#Sütunları kontrol ediyoruz.
-print(train_dataset.columns )
+#----------------------------------------------------------------------------------------
+#ilk olarak train_dataset içinden çıkarttık
+cikarilacaklar = ['Name','Ticket','Cabin'] #datamızı incelediğimizde bazı sütünlerin bizim verimiz için gerekli olmadığını fark edip çıkartık.
+train_dataset = train_dataset.drop(cikarilacaklar,axis=1)
 
-#---------------------------------------------------------------------------------------
 
-#İki veri setindeki toplam yolcu sayısı
-print(train_dataset.shape[0] + test_dataset.shape[0])
+#ikinci olarak test_dataset içinden çıkarttık.
+cikarilacaklar = ['Name','Ticket','Cabin']
+test_dataset = test_dataset.drop(cikarilacaklar,axis=1)
 
-#---------------------------------------------------------------------------------------
-
-#Hayatta kalma oranı
-train_dataset['Survived'].mean()
-
-#---------------------------------------------------------------------------------------
-
-#Ilk 5 veriyi tablo şeklinde göster
-train_dataset.head()
-
-#---------------------------------------------------------------------------------------
-
-#Eksik sütünları göster
-
-#eğitim setinde eksik değerleri olan sütunları listele
-print(train_dataset.columns[train_dataset.isna().any()])
-
-#test setinde eksik değerleri olan sütunları listele
-print(test_dataset.columns[test_dataset.isna().any()])
-
-#---------------------------------------------------------------------------------------
-
+#------------------------------------------------------------------------------------------
